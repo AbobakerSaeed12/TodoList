@@ -1,14 +1,22 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import uuid from "react-uuid"
 import TodoList from "./components/TodoList"
 import "./index.css"
 
-
+const LOCAL_STORAGE_KEY = "todoApp.todos"
 
 export default function App() {
   const [todos, setTodos] = useState([])
   const todoNameRef = useRef()
 
+  useEffect(() => {
+    const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+    if (storedTodos) setTodos(storedTodos)
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
+  }, [todos])
 
   const toggleComplete = (id) => {
     const newTodos = [...todos]
@@ -56,7 +64,7 @@ export default function App() {
         toggleComplete={toggleComplete}
         handleDelete={handleDelete}
       />
-      <div className="todo-left">
+      <div className="todos-left">
         {todos.filter((todo) => !todo.complete).length} todos left
       </div>
     </div>
