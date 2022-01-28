@@ -1,5 +1,10 @@
-import React from 'react';
+import React from "react";
+export default function Todo({ todo }) {
 
-export default function Todo() {
-  return <div></div>;
+
+  return (
+    <div>
+      <li>{todo.name}</li>
+    </div>
+  )
 }
