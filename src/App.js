@@ -35,6 +35,10 @@ export default function App() {
     setTodos(newTodos)
   }
 
+  const handleDelete = (id) => {
+    const newTodos = todos.filter((todo) => todo.id !== id)
+    setTodos(newTodos)
+  }
 
   return (
     <div className="App">
@@ -50,6 +54,7 @@ export default function App() {
       <TodoList
         todos={todos}
         toggleComplete={toggleComplete}
+        handleDelete={handleDelete}
       />
       <div className="task-left"> task left </div>
     </div>
