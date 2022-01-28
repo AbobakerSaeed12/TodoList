@@ -4,9 +4,18 @@ import TodoList from "./components/TodoList"
 import "./index.css"
 
 
+
 export default function App() {
   const [todos, setTodos] = useState([])
   const todoNameRef = useRef()
+
+
+  const toggleComplete = (id) => {
+    const newTodos = [...todos]
+    const todo = newTodos.find((todo) => todo.id === id)
+    todo.complete = !todo.complete
+    setTodos(newTodos)
+  }
 
   const handleClick = (e) => {
     const todoName = todoNameRef.current.value
@@ -21,6 +30,11 @@ export default function App() {
     todoNameRef.current.value = ""
   }
 
+  const handleClearCompletedTodos = () => {
+    const newTodos = todos.filter((todo) => !todo.complete)
+    setTodos(newTodos)
+  }
+
 
   return (
     <div className="App">
@@ -32,8 +46,11 @@ export default function App() {
         name="todo-name"
       />
       <button onClick={handleClick}>Add</button>
-      <button>Clear completed todos</button>
-      <TodoList todos={todos} />
+      <button onClick={handleClearCompletedTodos}>Clear completed todos</button>
+      <TodoList
+        todos={todos}
+        toggleComplete={toggleComplete}
+      />
       <div className="task-left"> task left </div>
     </div>
   )
