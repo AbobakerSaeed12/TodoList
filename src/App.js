@@ -56,7 +56,9 @@ export default function App() {
         toggleComplete={toggleComplete}
         handleDelete={handleDelete}
       />
-      <div className="task-left"> task left </div>
+      <div className="todo-left">
+        {todos.filter((todo) => !todo.complete).length} todos left
+      </div>
     </div>
   )
 }
