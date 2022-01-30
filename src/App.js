@@ -47,15 +47,31 @@ export default function App() {
     const newTodos = todos.filter((todo) => todo.id !== id)
     setTodos(newTodos)
   }
-
+  const input = document.querySelector('.inputField')
+  const Warning = document.querySelector('.warning')
+  function checkCodeLength() {
+    const enteredCodeLength = input.value.length
+    const maxLenght = input.maxLength
+    if (enteredCodeLength === maxLenght) {
+      Warning.hidden = false
+      input.classList.add("error")
+      Warning.textContent = `Max length is ${maxLenght} characters`
+    } else {
+      Warning.hidden = true
+      input.classList.remove("error")
+    }
+  }
   return (
     <div className="App">
       <h2>Todo List</h2>
+      <p hidden className="warning"></p>
       <input
         className="inputField"
         ref={todoNameRef}
         type="text"
         name="todo-name"
+        onChange={checkCodeLength}
+        maxLength="20"
       />
       <button onClick={handleClick}>Add</button>
       <button onClick={handleClearCompletedTodos}>Clear completed todos</button>
