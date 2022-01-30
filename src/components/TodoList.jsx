@@ -3,15 +3,17 @@ import Todo from "./Todo"
 
 export default function TodoList({todos, toggleComplete, handleDelete}) {
   return (
-    todos.map(todo => {
-      return <Todo 
-                className="todo-item" 
-                key={todo.id} 
-                handleDelete={handleDelete} 
-                toggleComplete={toggleComplete} 
-                todo={todo} 
-              />
-    })
+    <div>
+      {todos.map(todo => {
+        return <Todo 
+                  className="todo-item" 
+                  key={todo.id} 
+                  handleDelete={handleDelete} 
+                  toggleComplete={toggleComplete} 
+                  todo={todo} 
+                />
+      })}
+    </div>
   )
 }
 

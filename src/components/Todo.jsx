@@ -1,4 +1,6 @@
 import React from "react";
+import "./style.css"
+
 export default function Todo({ todo, toggleComplete, handleDelete }) {
 
   function handleCheckBoxClick() {
@@ -10,13 +12,16 @@ export default function Todo({ todo, toggleComplete, handleDelete }) {
   }
 
   return (
-    <div>
+    <div className="todocomponent">
       <input
         type="checkbox"
         checked={todo.complete}
         onChange={handleCheckBoxClick}
+        
       />
-      <li>{todo.name}</li>
+      <li className="todoname" style={{ textDecoration: todo.complete ? "line-through" : null }}>
+        {todo.name}
+      </li>
       <button onClick={handleDeleteClick}>X</button>
     </div>
   )
