@@ -53,13 +53,11 @@ export default function App() {
   const warning = document.querySelector(".warning");
   const limit = 50;
   const checkCodeLength = () => {
-    if (warning.textContent === 0) {
       warning.textContent = 0 + "/" + limit;
       let textLength = input.value.length;
       warning.textContent = textLength + "/" + limit;
-    } else {
-      warning.textContent = 0 + "/" + limit;
-    }
+      warning.textContent = textLength + "/" + limit;
+    
   };
 
   return (
