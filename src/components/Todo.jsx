@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css"
+import {Checkbox, ListItem, Typography} from "@material-ui/core"
 
 export default function Todo({ todo, toggleComplete, handleDelete }) {
 
@@ -12,17 +12,18 @@ export default function Todo({ todo, toggleComplete, handleDelete }) {
   }
 
   return (
-    <div className="todocomponent">
-      <input
-        type="checkbox"
-        checked={todo.complete}
-        onChange={handleCheckBoxClick}
-        
-      />
-      <li className="todoname" style={{ textDecoration: todo.complete ? "line-through" : null }}>
+    <ListItem className="List-item">
+        <Typography className='List-item todo-item' 
+          style={{
+            textDecoration: todo.complete ? "line-through" : null
+          }}
+        >
         {todo.name}
-      </li>
-      <button onClick={handleDeleteClick}>X</button>
-    </div>
-  )
+        </Typography>
+            <Checkbox type="checkbox" checked={todo.complete} onChange={handleCheckBoxClick}/>
+        <button className="delete-icon" onClick={handleDeleteClick}>
+            X
+        </button>
+    </ListItem>
+)
 }
