@@ -2,13 +2,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Trebuchet MS'
+  font-family: "Trebuchet MS";
 }
 
 body {
-
   color: #fff;
 }
+
 .todo-app {
   display: flex;
   flex-direction: column;
@@ -28,7 +28,6 @@ h1 {
   font-size: 24px;
 }
 
-
 .todo-form {
   margin-bottom: 32px;
 }
@@ -47,6 +46,7 @@ h1 {
   color: #e2e2e2;
 }
 
+
 .todo-button {
   padding: 16px;
   border: none;
@@ -61,10 +61,12 @@ h1 {
   color: #fff;
   text-transform: capitalize;
 }
-.container{
+
+.container {
   padding-top: 20px;
 }
- .delete-icon {
+
+.delete-icon {
   padding: 10px;
   border: none;
   cursor: pointer;
@@ -75,7 +77,8 @@ h1 {
     rgba(155, 0, 250, 1) 100%
   );
   color: #fff;
-} 
+}
+
 ul {
   padding: 0px;
   margin: 0px;
@@ -96,13 +99,10 @@ ul {
   padding-left: 50px;
 }
 @media screen and (max-width: 400px) {
-    
-    .todo-input {
-      width: 150px;
-    }
-    .List-item {
-      padding: 0;
-    }
+  .todo-input {
+    width: 150px;
   }
-
- 
+  .List-item {
+    padding: 0;
+  }
+}
